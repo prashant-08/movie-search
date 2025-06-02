@@ -1,10 +1,12 @@
 import './App.css'
+import MainRoutes from './routes/MainRoutes'
 
 function App() {
-
+  // console.log(import.meta.env.VITE_API_KEY)
   return (
     <>
-      movie app
+      <nav>simple navbar</nav>
+      <MainRoutes />
     </>
   )
 }
