@@ -1,22 +1,29 @@
-import MovieCard from "../components/MovieCard/MovieCard"
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+
+import {searchMovies} from '../apis/omdb'
+
+import MovieCard from '../components/MovieCard/MovieCard'
 import './Home.css'
 
 function Home () {
-    const movie = {
-      "Title": "Harry Potter and the Deathly Hallows: Part 2",
-      "Year": "2011",
-      "imdbID": "tt1201607",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BOTA1Mzc2N2ItZWRiNS00MjQzLTlmZDQtMjU0NmY1YWRkMGQ4XkEyXkFqcGc@._V1_SX300.jpg"
-    }
+    const [movieList, setMovieList] = useState([])
+
+        useEffect(()=> {
+        const getData = async (...args) => {
+            const urls = args.map(name  => searchMovies(name))
+            const response = await axios.all(urls.map(url => axios.get(url)))
+            console.log(response)
+            const movies = response.map(res => res.data.Search);
+            setMovieList([].concat(...movies))
+        }
+        getData('harry', 'avenger', 'batman');
+    }, [])
 
     return (
         <>
         <div className="movie-card-wrapper">
-            <MovieCard {...movie} />
-            <MovieCard {...movie} />
-            <MovieCard {...movie} />
-            <MovieCard {...movie} />
+           {movieList.map(movie => <MovieCard key={movie.imdbID} {...movie} />)}
         </div>
         </>
     )
