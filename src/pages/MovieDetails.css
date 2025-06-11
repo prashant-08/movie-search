@@ -1,0 +1,20 @@
+.movie-details-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.movie-card {
+    flex-basis: 40%;
+}
+
+.movie-details {
+    color: white;
+    flex-basis: 50%;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

@@ -4,6 +4,8 @@ import { searchMoviesById } from "../apis/omdb"
 import axios from "axios"
 import MovieCard from "../components/MovieCard/MovieCard"
 
+import './MovieDetails.css'
+
 
 function MovieDetails () {
     const [movie, setMovie] = useState(null)
@@ -17,9 +19,20 @@ function MovieDetails () {
         getData()
     }, [id])
     return (
-        <>
-        {movie && <MovieCard {...movie} />}
-        </>
+        <div className="movie-details-wrapper">
+            {movie && <MovieCard {...movie} />}
+            {movie && <div className="movie-detils">
+                <div>
+                    Plot: {movie.Plot}
+                </div>
+                <div>
+                    Actors: {movie.Actors}
+                </div>
+                <div>
+                    Genre: {movie.Genre}
+                </div>
+            </div>}
+        </div>
     )
 }
 

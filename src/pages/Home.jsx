@@ -7,7 +7,7 @@ function Home () {
     return (
         <>
         <div className="movie-card-wrapper">
-           {movieList.map(movie => <MovieCard key={movie.imdbID} {...movie} />)}
+           {movieList.map(movie => <MovieCard key={movie.imdbID} {...movie} id={movie.imdbID} />)}
         </div>
         </>
     )

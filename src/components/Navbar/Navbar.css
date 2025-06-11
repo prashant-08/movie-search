@@ -1,6 +1,6 @@
 .navbar-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid var(--dull-blue);
     padding: 1rem;
     align-items: center;
@@ -24,7 +24,7 @@
     border: none;
     border-radius: 3px;
     height: 34px;
-    color: whitesmoke;
+    color: var(--font-color);
 }
 
 .search-bar {
@@ -59,4 +59,9 @@
 
 .autocomplete-result:hover {
     background-color: beige;
+}
+
+.theme-icon {
+    font-size: x-large;
+    cursor: pointer;
 }
