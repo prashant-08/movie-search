@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom"
 import { searchMoviesById } from "../apis/omdb"
 import axios from "axios"
 import MovieCard from "../components/MovieCard/MovieCard"
+import { Rating } from '@smastrom/react-rating'
+
 
 import './MovieDetails.css'
-
+import '@smastrom/react-rating/style.css'
 
 function MovieDetails () {
     const [movie, setMovie] = useState(null)
@@ -21,7 +23,7 @@ function MovieDetails () {
     return (
         <div className="movie-details-wrapper">
             {movie && <MovieCard {...movie} />}
-            {movie && <div className="movie-detils">
+            {movie && <div className="movie-details">
                 <div>
                     Plot: {movie.Plot}
                 </div>
@@ -29,7 +31,12 @@ function MovieDetails () {
                     Actors: {movie.Actors}
                 </div>
                 <div>
-                    Genre: {movie.Genre}
+                    Genre: {movie.Genre.split(',').map((genre) => {
+                        return <span className="genre" key={genre}>{genre}</span>
+                    })}
+                </div>
+                <div>
+                    <Rating value={Math.floor(movie.imdbRating)} items={10} />
                 </div>
             </div>}
         </div>
