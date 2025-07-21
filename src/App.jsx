@@ -6,7 +6,6 @@ import ThemeContext from './context/ThemeContext'
 import { useEffect, useState } from 'react'
 
 function App() {
-  // console.log(import.meta.env.VITE_API_KEY)
   const [theme, setTheme] = useState('dark')
 
   useEffect(()=>{
