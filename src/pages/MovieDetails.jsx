@@ -31,7 +31,7 @@ function MovieDetails () {
                     Actors: {movie.Actors}
                 </div>
                 <div>
-                    Genre: {movie.Genre.split(',').map((genre) => {
+                    <span>Genre:</span> {movie.Genre.split(',').map((genre) => {
                         return <span className="genre" key={genre}>{genre}</span>
                     })}
                 </div>

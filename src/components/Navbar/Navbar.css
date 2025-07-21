@@ -9,12 +9,12 @@
 }
 
 .navbar-wrapper div:nth-child(1) {
-    font-size: x-large;
-    letter-spacing: 5px;
+    font-size: large;
+    letter-spacing: 1px;
 }
 
 .navbar-wrapper div:nth-child(2) {
-    flex-basis: 65%;
+    flex-basis: 56%;
 }
 
 .navbar-wrapper div:nth-child(2) input {
@@ -62,6 +62,7 @@
 }
 
 .theme-icon {
+    margin-left: 1rem;
     font-size: x-large;
     cursor: pointer;
 }
